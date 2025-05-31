@@ -63,8 +63,8 @@
             height: 100vh;
             position: relative;
             z-index: 2;
-            max-width: 1920px;
-            margin: 0 auto;
+            max-width: none;
+            margin: 0;
             width: 100%;
             overflow: hidden;
         }
@@ -153,7 +153,7 @@
         
         .main-content {
             flex: 1;
-            padding: 15px;
+            padding: 12px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 0 20px 20px 0;
@@ -164,7 +164,8 @@
             margin-left: 180px;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            height: 100vh;
+            justify-content: flex-start;
         }
         
         .main-content.with-settings {
@@ -184,7 +185,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            flex-shrink: 0;
         }
         
         .settings-toggle {
@@ -569,17 +571,19 @@
         .charts-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 15px;
             width: 100%;
             max-width: 100%;
             box-sizing: border-box;
+            flex: 1;
+            align-content: start;
         }
         
         .chart-container {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 20px;
+            padding: 15px;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             position: relative;
@@ -588,6 +592,11 @@
             min-width: 0;
             max-width: 100%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            min-height: 280px;
+            max-height: 400px;
         }
         
         .chart-container.no-blur {
@@ -608,17 +617,18 @@
         
         .chart-wrapper {
             position: relative;
-            height: 220px;
             width: 100%;
             overflow: hidden;
+            flex: 1;
+            min-height: 150px;
         }
         
         .chart-wrapper.small {
-            height: 170px;
+            min-height: 120px;
         }
         
         .chart-wrapper.tiny {
-            height: 140px;
+            min-height: 100px;
         }
         
         .chart-wrapper canvas {
@@ -627,8 +637,10 @@
         }
         
         canvas {
-            max-height: 220px !important;
-            height: auto !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
         }
         
         .image-upload-section {
@@ -686,12 +698,14 @@
         
         .bottom-row {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 0;
             width: 100%;
             max-width: 100%;
             box-sizing: border-box;
+            flex: 1;
+            align-content: start;
         }
         
         .horizontal-bar {
@@ -882,11 +896,13 @@
         }
         
         .radar-chart-wrapper {
-            height: 180px;
+            height: 100%;
+            min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            flex: 1;
         }
         
         .perceived-recovery {
@@ -907,6 +923,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .recovery-averages {
