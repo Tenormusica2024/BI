@@ -596,7 +596,8 @@
             flex-direction: column;
             height: auto;
             min-height: 250px;
-            max-height: 350px;
+            max-height: 380px;
+            justify-content: space-between;
         }
         
         .chart-container.no-blur {
@@ -620,15 +621,15 @@
             width: 100%;
             overflow: hidden;
             flex: 1;
-            min-height: 150px;
-        }
-        
-        .chart-wrapper.small {
             min-height: 120px;
         }
         
-        .chart-wrapper.tiny {
+        .chart-wrapper.small {
             min-height: 100px;
+        }
+        
+        .chart-wrapper.tiny {
+            min-height: 80px;
         }
         
         .chart-wrapper canvas {
@@ -782,14 +783,14 @@
         
         .distance-cards {
             display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 10px;
         }
         
         .distance-card {
             flex: 1;
             text-align: center;
-            padding: 15px;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 4px;
@@ -809,7 +810,7 @@
         }
         
         .distance-value {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -818,12 +819,13 @@
         .heatmap {
             display: grid;
             grid-template-columns: 120px repeat(6, 1fr);
-            gap: 2px;
+            gap: 4px;
             font-size: 11px;
+            margin: 15px 0 25px 0;
         }
         
         .heatmap-label {
-            padding: 8px 4px;
+            padding: 16px 4px;
             background: rgba(255, 255, 255, 0.03);
             display: flex;
             align-items: center;
@@ -833,7 +835,7 @@
         }
         
         .heatmap-cell {
-            padding: 8px 4px;
+            padding: 16px 4px;
             text-align: center;
             color: white;
             font-weight: bold;
@@ -860,7 +862,7 @@
         .recovery-subtitle {
             font-size: 12px;
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             font-style: italic;
         }
         
@@ -901,8 +903,8 @@
         
         .radar-chart-wrapper {
             height: 100%;
-            min-height: 140px;
-            max-height: 200px;
+            min-height: 160px;
+            max-height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -920,12 +922,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .recovery-bar-chart {
-            height: 35px;
-            margin-bottom: 10px;
+            height: 80px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -935,7 +937,7 @@
         .recovery-averages {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
         
         .recovery-avg-item {
@@ -1086,7 +1088,7 @@
                         </div>
                     </div>
                     
-                    <div class="chart-title dynamic-text" style="margin-top: 25px;">Attrition || Age group</div>
+                    <div class="chart-title dynamic-text" style="margin-top: 15px;">Attrition || Age group</div>
                     <div class="chart-wrapper tiny">
                         <canvas id="ageChart"></canvas>
                     </div>
@@ -1127,7 +1129,7 @@
                         <div class="bar-number dynamic-text">150</div>
                     </div>
                     
-                    <div class="chart-title dynamic-text" style="margin-top: 25px;">Attrition || Marriage status</div>
+                    <div class="chart-title dynamic-text" style="margin-top: 15px;">Attrition || Marriage status</div>
                     <div class="horizontal-bar">
                         <div class="bar-label dynamic-text">Divorced</div>
                         <div class="bar-fill">
@@ -1151,70 +1153,72 @@
                     </div>
                 </div>
                 
-                <div class="chart-container">
-                    <div class="chart-title dynamic-text">Attrition || Job role</div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Laboratory Technician</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 70%;"></div>
+                <div class="chart-container" style="min-height: 350px; padding: 12px 12px 30px 12px;">
+                    <div class="chart-title dynamic-text" style="margin-bottom: 15px;">Attrition || Job role</div>
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Laboratory Technician</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 70%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">62</div>
                         </div>
-                        <div class="bar-number dynamic-text">62</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Sales Executive</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 65%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Sales Executive</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 65%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">57</div>
                         </div>
-                        <div class="bar-number dynamic-text">57</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Research Scientist</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 55%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Research Scientist</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 55%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">47</div>
                         </div>
-                        <div class="bar-number dynamic-text">47</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Sales Representative</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 40%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Sales Representative</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 40%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">33</div>
                         </div>
-                        <div class="bar-number dynamic-text">33</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Human Resources</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 15%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Human Resources</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 15%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">12</div>
                         </div>
-                        <div class="bar-number dynamic-text">12</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Manufacturing Director</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 10%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Manufacturing Director</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 10%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">10</div>
                         </div>
-                        <div class="bar-number dynamic-text">10</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Healthcare Representative</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 8%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Healthcare Representative</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 8%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">9</div>
                         </div>
-                        <div class="bar-number dynamic-text">9</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Manager</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 6%;"></div>
+                        <div class="horizontal-bar">
+                            <div class="bar-label dynamic-text">Manager</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 6%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">5</div>
                         </div>
-                        <div class="bar-number dynamic-text">5</div>
-                    </div>
-                    <div class="horizontal-bar">
-                        <div class="bar-label dynamic-text">Research Director</div>
-                        <div class="bar-fill">
-                            <div class="bar-value" style="width: 3%;"></div>
+                        <div class="horizontal-bar" style="margin-bottom: 0;">
+                            <div class="bar-label dynamic-text">Research Director</div>
+                            <div class="bar-fill">
+                                <div class="bar-value" style="width: 3%;"></div>
+                            </div>
+                            <div class="bar-number dynamic-text">2</div>
                         </div>
-                        <div class="bar-number dynamic-text">2</div>
                     </div>
                 </div>
                 
@@ -1250,17 +1254,17 @@
                     <div class="distance-cards">
                         <div class="distance-card">
                             <div class="distance-label">Distance<br>1-9 km</div>
-                            <div style="margin: 10px 0; font-size: 11px; color: #4a6fa5; font-weight: bold;">Attrition</div>
+                            <div style="margin: 8px 0; font-size: 10px; color: #4a6fa5; font-weight: bold;">Attrition</div>
                             <div class="distance-value">133</div>
                         </div>
                         <div class="distance-card">
                             <div class="distance-label">Distance<br>10-20 km</div>
-                            <div style="margin: 10px 0; font-size: 11px; color: #4a6fa5; font-weight: bold;">Attrition</div>
+                            <div style="margin: 8px 0; font-size: 10px; color: #4a6fa5; font-weight: bold;">Attrition</div>
                             <div class="distance-value">55</div>
                         </div>
                         <div class="distance-card">
                             <div class="distance-label">Distance<br>21-30 km</div>
-                            <div style="margin: 10px 0; font-size: 11px; color: #4a6fa5; font-weight: bold;">Attrition</div>
+                            <div style="margin: 8px 0; font-size: 10px; color: #4a6fa5; font-weight: bold;">Attrition</div>
                             <div class="distance-value">49</div>
                         </div>
                     </div>
@@ -1702,18 +1706,19 @@
                             datasets: [{
                                 data: [65, 45, 70, 55, 60, 50],
                                 backgroundColor: 'rgba(74, 111, 165, 0.3)',
-                                borderColor: '#4a6fa5',
-                                borderWidth: 2,
-                                pointBackgroundColor: '#4a6fa5',
+                                borderColor: '#666666',
+                                borderWidth: 3,
+                                pointBackgroundColor: '#666666',
                                 pointBorderColor: '#ffffff',
-                                pointBorderWidth: 2
+                                pointBorderWidth: 2,
+                                pointRadius: 4
                             }]
                         },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
                             layout: {
-                                padding: 10
+                                padding: 5
                             },
                             scales: {
                                 r: {
@@ -1721,17 +1726,17 @@
                                     min: 0,
                                     max: 100,
                                     grid: { 
-                                        color: 'rgba(255,255,255,0.2)',
+                                        color: '#666666',
                                         lineWidth: 1
                                     },
                                     angleLines: { 
-                                        color: 'rgba(255,255,255,0.2)',
+                                        color: '#666666',
                                         lineWidth: 1
                                     },
                                     pointLabels: { 
-                                        color: '#ffffff', 
-                                        font: { size: 9 },
-                                        padding: 5
+                                        color: '#444444', 
+                                        font: { size: 11, weight: 'bold' },
+                                        padding: 8
                                     },
                                     ticks: { 
                                         display: false,
@@ -1745,11 +1750,11 @@
                             },
                             elements: {
                                 point: {
-                                    radius: 3,
-                                    hoverRadius: 5
+                                    radius: 4,
+                                    hoverRadius: 6
                                 },
                                 line: {
-                                    borderWidth: 2
+                                    borderWidth: 3
                                 }
                             }
                         }
@@ -1771,19 +1776,41 @@
                             datasets: [{
                                 data: [-5, -3, -8, -2, -6, -4, -8],
                                 backgroundColor: ['#666', '#666', '#666', '#666', '#666', '#666', '#4a6fa5'],
-                                borderRadius: 2,
-                                maxBarThickness: 8
+                                borderRadius: 4,
+                                maxBarThickness: 18
                             }]
                         },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
                             indexAxis: 'y',
-                            scales: {
-                                x: { display: false },
-                                y: { display: false }
+                            layout: {
+                                padding: {
+                                    top: 0,
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0
+                                }
                             },
-                            plugins: { legend: { display: false } }
+                            scales: {
+                                x: { 
+                                    display: false,
+                                    grid: { display: false }
+                                },
+                                y: { 
+                                    display: false,
+                                    grid: { display: false }
+                                }
+                            },
+                            plugins: { 
+                                legend: { display: false },
+                                tooltip: { enabled: false }
+                            },
+                            elements: {
+                                bar: {
+                                    borderWidth: 0
+                                }
+                            }
                         }
                     });
                 }
