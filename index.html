@@ -185,7 +185,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             flex-shrink: 0;
         }
         
@@ -514,8 +514,8 @@
         .kpi-row {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 10px;
             width: 100%;
             max-width: 100%;
             box-sizing: border-box;
@@ -524,7 +524,7 @@
         .kpi-card {
             background: rgba(255, 255, 255, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             text-align: center;
@@ -571,8 +571,8 @@
         .charts-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 10px;
             width: 100%;
             max-width: 100%;
             box-sizing: border-box;
@@ -583,7 +583,7 @@
         .chart-container {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 15px;
+            padding: 12px;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             position: relative;
@@ -595,8 +595,8 @@
             display: flex;
             flex-direction: column;
             height: auto;
-            min-height: 280px;
-            max-height: 400px;
+            min-height: 250px;
+            max-height: 350px;
         }
         
         .chart-container.no-blur {
@@ -689,17 +689,17 @@
         }
         
         .chart-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .bottom-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
             margin-top: 0;
             width: 100%;
             max-width: 100%;
@@ -711,7 +711,7 @@
         .horizontal-bar {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .bar-label {
@@ -753,8 +753,8 @@
         
         .period-selector {
             display: flex;
-            gap: 5px;
-            margin-bottom: 15px;
+            gap: 4px;
+            margin-bottom: 10px;
         }
         
         .period-btn {
@@ -868,8 +868,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
@@ -885,24 +885,30 @@
         }
         
         .recovery-chart-container {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
         }
         
         .recovery-chart-title {
-            font-size: 13px;
+            font-size: 12px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 500;
         }
         
         .radar-chart-wrapper {
             height: 100%;
-            min-height: 120px;
+            min-height: 140px;
+            max-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             flex: 1;
+            overflow: hidden;
         }
         
         .perceived-recovery {
@@ -914,12 +920,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .recovery-bar-chart {
-            height: 40px;
-            margin-bottom: 15px;
+            height: 35px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -929,7 +935,7 @@
         .recovery-averages {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
         
         .recovery-avg-item {
@@ -1684,7 +1690,12 @@
                 const radarCtx = document.getElementById('radarChart');
                 if (radarCtx && radarCtx.getContext) {
                     console.log('Creating radar chart...');
-                    new Chart(radarCtx.getContext('2d'), {
+                    // チャート初期化にデバッグ情報を追加
+                    console.log('Canvas element found:', radarCtx);
+                    console.log('Canvas dimensions:', radarCtx.width, 'x', radarCtx.height);
+                    console.log('Canvas parent dimensions:', radarCtx.parentElement.offsetWidth, 'x', radarCtx.parentElement.offsetHeight);
+                    
+                    const radarChart = new Chart(radarCtx.getContext('2d'), {
                         type: 'radar',
                         data: {
                             labels: ['Soreness', 'Inflammation', 'Joint Range', 'Load Tolerance', 'Perceived Recovery', 'Sleep'],
@@ -1701,19 +1712,52 @@
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
+                            layout: {
+                                padding: 10
+                            },
                             scales: {
                                 r: {
                                     beginAtZero: true,
+                                    min: 0,
                                     max: 100,
-                                    grid: { color: 'rgba(255,255,255,0.2)' },
-                                    angleLines: { color: 'rgba(255,255,255,0.2)' },
-                                    pointLabels: { color: '#ffffff', font: { size: 10 } },
-                                    ticks: { display: false }
+                                    grid: { 
+                                        color: 'rgba(255,255,255,0.2)',
+                                        lineWidth: 1
+                                    },
+                                    angleLines: { 
+                                        color: 'rgba(255,255,255,0.2)',
+                                        lineWidth: 1
+                                    },
+                                    pointLabels: { 
+                                        color: '#ffffff', 
+                                        font: { size: 9 },
+                                        padding: 5
+                                    },
+                                    ticks: { 
+                                        display: false,
+                                        stepSize: 20
+                                    }
                                 }
                             },
-                            plugins: { legend: { display: false } }
+                            plugins: { 
+                                legend: { display: false },
+                                tooltip: { enabled: true }
+                            },
+                            elements: {
+                                point: {
+                                    radius: 3,
+                                    hoverRadius: 5
+                                },
+                                line: {
+                                    borderWidth: 2
+                                }
+                            }
                         }
                     });
+                    
+                    console.log('Radar chart created successfully:', radarChart);
+                } else {
+                    console.error('Radar chart canvas not found or invalid');
                 }
                 
                 // Recovery Bar Chart
