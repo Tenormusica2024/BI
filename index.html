@@ -580,6 +580,10 @@
             align-content: start;
         }
         
+        .charts-grid.four-columns {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        
         .chart-container {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -844,9 +848,9 @@
             justify-content: center;
         }
         
-        .heat-1 { background: #e8f4fd; color: #333; }
-        .heat-2 { background: #b3d9f7; color: #333; }
-        .heat-3 { background: #7fc3f0; color: white; }
+        .heat-1 { background: #d6e3f5; color: #333; }
+        .heat-2 { background: #9cc3e8; color: #333; }
+        .heat-3 { background: #6ba3d6; color: white; }
         .heat-4 { background: #4a6fa5; color: white; }
         .heat-5 { background: #2d4a73; color: white; }
         
@@ -861,7 +865,7 @@
         
         .recovery-subtitle {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
+            color: #555555;
             margin-bottom: 8px;
             font-style: italic;
         }
@@ -877,7 +881,7 @@
         
         .recovery-label {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.8);
+            color: #555555;
         }
         
         .recovery-value {
@@ -896,7 +900,7 @@
         
         .recovery-chart-title {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.9);
+            color: #555555;
             margin-bottom: 10px;
             font-weight: 500;
         }
@@ -1111,7 +1115,7 @@
                 </div>
             </div>
             
-            <div class="charts-grid">
+            <div class="charts-grid four-columns">
                 <div class="chart-container">
                     <div class="chart-title dynamic-text">Attrition || Gender</div>
                     <div class="horizontal-bar">
@@ -1243,6 +1247,71 @@
                         <div class="recovery-avg-item">
                             <span class="recovery-label">30-Day Avg.</span>
                             <span class="recovery-value">-11.8%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-title dynamic-text">Attrition || Department</div>
+                    
+                    <!-- 上部の円グラフ -->
+                    <div style="margin-bottom: 15px;">
+                        <div class="chart-wrapper" style="height: 90px;">
+                            <canvas id="departmentChart1"></canvas>
+                        </div>
+                        <div class="department-legend" style="margin-top: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #4a6fa5; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">R&D</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">133</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #6ba3d6; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">Sales</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">92</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #9cc3e8; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">HR</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">12</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 下部の円グラフ -->
+                    <div>
+                        <div style="font-size: 11px; color: #333333; margin-bottom: 6px;">By Experience</div>
+                        <div class="chart-wrapper" style="height: 90px;">
+                            <canvas id="departmentChart2"></canvas>
+                        </div>
+                        <div class="department-legend" style="margin-top: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #2d4a73; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">0-2 years</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">89</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #4a6fa5; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">3-5 years</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">95</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 8px; height: 8px; background: #6ba3d6; border-radius: 2px;"></div>
+                                    <span style="font-size: 9px; color: #333333;">6+ years</span>
+                                </div>
+                                <span style="font-size: 10px; font-weight: bold; color: #333333;">53</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1694,10 +1763,6 @@
                 const radarCtx = document.getElementById('radarChart');
                 if (radarCtx && radarCtx.getContext) {
                     console.log('Creating radar chart...');
-                    // チャート初期化にデバッグ情報を追加
-                    console.log('Canvas element found:', radarCtx);
-                    console.log('Canvas dimensions:', radarCtx.width, 'x', radarCtx.height);
-                    console.log('Canvas parent dimensions:', radarCtx.parentElement.offsetWidth, 'x', radarCtx.parentElement.offsetHeight);
                     
                     const radarChart = new Chart(radarCtx.getContext('2d'), {
                         type: 'radar',
@@ -1815,6 +1880,116 @@
                     });
                 }
                 
+                // Department Pie Chart 1 (上部)
+                const departmentCtx1 = document.getElementById('departmentChart1');
+                if (departmentCtx1 && departmentCtx1.getContext) {
+                    console.log('Creating department chart 1...');
+                    // キャンバスのサイズを明示的に設定
+                    departmentCtx1.width = 200;
+                    departmentCtx1.height = 120;
+                    
+                    new Chart(departmentCtx1.getContext('2d'), {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['R&D', 'Sales', 'HR'],
+                            datasets: [{
+                                data: [133, 92, 12],
+                                backgroundColor: ['#4a6fa5', '#6ba3d6', '#9cc3e8'],
+                                borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+                                borderWidth: 1,
+                                cutout: '50%'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            animation: {
+                                duration: 1000
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                    titleColor: '#ffffff',
+                                    bodyColor: '#ffffff',
+                                    borderColor: '#4a6fa5',
+                                    borderWidth: 1,
+                                    callbacks: {
+                                        label: function(context) {
+                                            const label = context.label || '';
+                                            const value = context.parsed;
+                                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                            const percentage = Math.round((value / total) * 100);
+                                            return `${label}: ${value} (${percentage}%)`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    console.log('Department chart 1 created successfully');
+                } else {
+                    console.error('Department chart 1 canvas not found');
+                }
+                
+                // Department Pie Chart 2 (下部) - Experience
+                const departmentCtx2 = document.getElementById('departmentChart2');
+                if (departmentCtx2 && departmentCtx2.getContext) {
+                    console.log('Creating department chart 2...');
+                    // キャンバスのサイズを明示的に設定
+                    departmentCtx2.width = 200;
+                    departmentCtx2.height = 120;
+                    
+                    new Chart(departmentCtx2.getContext('2d'), {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['0-2 years', '3-5 years', '6+ years'],
+                            datasets: [{
+                                data: [89, 95, 53],
+                                backgroundColor: ['#2d4a73', '#4a6fa5', '#6ba3d6'],
+                                borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+                                borderWidth: 1,
+                                cutout: '50%'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            animation: {
+                                duration: 1000
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                    titleColor: '#ffffff',
+                                    bodyColor: '#ffffff',
+                                    borderColor: '#4a6fa5',
+                                    borderWidth: 1,
+                                    callbacks: {
+                                        label: function(context) {
+                                            const label = context.label || '';
+                                            const value = context.parsed;
+                                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                            const percentage = Math.round((value / total) * 100);
+                                            return `${label}: ${value} (${percentage}%)`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    console.log('Department chart 2 created successfully');
+                } else {
+                    console.error('Department chart 2 canvas not found');
+                }
+                
                 console.log('All charts created successfully');
                 
             } catch (error) {
@@ -1883,7 +2058,7 @@
         // 遅延初期化システム
         function initChartsWithDelay() {
             let attempts = 0;
-            const maxAttempts = 10;
+            const maxAttempts = 15;
             
             function tryInit() {
                 attempts++;
@@ -1891,13 +2066,16 @@
                 
                 if (typeof Chart !== 'undefined') {
                     console.log('Chart.js found, initializing charts...');
-                    initCharts();
+                    // 少し遅延を追加してDOM要素が確実に準備されるのを待つ
+                    setTimeout(() => {
+                        initCharts();
+                    }, 500);
                     return;
                 }
                 
                 if (attempts < maxAttempts) {
-                    console.log('Chart.js not ready, retrying in 200ms...');
-                    setTimeout(tryInit, 200);
+                    console.log('Chart.js not ready, retrying in 300ms...');
+                    setTimeout(tryInit, 300);
                 } else {
                     console.error('Chart.js failed to load after maximum attempts');
                 }
