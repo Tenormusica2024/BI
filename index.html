@@ -397,7 +397,7 @@
         }
         
         .bg-mint {
-            background: linear-gradient(135deg, #e0fff4 0%, #b3ffda 50%, #7fffd4 100%);
+            background: linear-gradient(135deg, #f0fffa 0%, #d9fff0 50%, #bfffdf 100%);
             color: #333;
         }
         
@@ -411,9 +411,9 @@
             color: white;
         }
         
-        .bg-gold {
-            background: linear-gradient(135deg, #fffef9 0%, #fffacd 30%, #fff8dc 100%);
-            color: #333;
+        .bg-charcoal {
+            background: linear-gradient(135deg, #2a2a3e 0%, #252541 50%, #1f2937 100%);
+            color: white;
         }
         
         .bg-platinum {
@@ -1442,8 +1442,8 @@
                     <div class="background-option bg-luxury" onclick="setTheme('luxury')" title="Luxury Dark">
                         Luxury
                     </div>
-                    <div class="background-option bg-gold" onclick="setTheme('gold')" title="Elegant Gold">
-                        Gold
+                    <div class="background-option bg-charcoal" onclick="setTheme('charcoal')" title="Charcoal Dark">
+                        Charcoal
                     </div>
                     <div class="background-option bg-platinum" onclick="setTheme('platinum')" title="Platinum Silver">
                         Platinum
@@ -1499,10 +1499,10 @@
             forest: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
             gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
             lemon: 'linear-gradient(135deg, #fffffb 0%, #fffef7 50%, #fffacd 100%)',
-            mint: 'linear-gradient(135deg, #e0fff4 0%, #b3ffda 50%, #7fffd4 100%)',
+            mint: 'linear-gradient(135deg, #f0fffa 0%, #d9fff0 50%, #bfffdf 100%)',
             lavender: 'linear-gradient(135deg, #faf9fd 0%, #f4f1fb 50%, #ede7f6 100%)',
             luxury: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-            gold: 'linear-gradient(135deg, #fffef9 0%, #fffacd 30%, #fff8dc 100%)',
+            charcoal: 'linear-gradient(135deg, #2a2a3e 0%, #252541 50%, #1f2937 100%)',
             platinum: 'linear-gradient(135deg, #f8f8ff 0%, #e6e6fa 50%, #d3d3d3 100%)'
         };
         
@@ -1884,9 +1884,9 @@
                 const departmentCtx1 = document.getElementById('departmentChart1');
                 if (departmentCtx1 && departmentCtx1.getContext) {
                     console.log('Creating department chart 1...');
-                    // キャンバスのサイズを明示的に設定
-                    departmentCtx1.width = 200;
-                    departmentCtx1.height = 120;
+                    // キャンバスのサイズを小さく調整
+                    departmentCtx1.width = 150;
+                    departmentCtx1.height = 90;
                     
                     new Chart(departmentCtx1.getContext('2d'), {
                         type: 'doughnut',
@@ -1897,12 +1897,15 @@
                                 backgroundColor: ['#4a6fa5', '#6ba3d6', '#9cc3e8'],
                                 borderColor: ['#ffffff', '#ffffff', '#ffffff'],
                                 borderWidth: 1,
-                                cutout: '50%'
+                                cutout: '45%'
                             }]
                         },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
+                            layout: {
+                                padding: 5
+                            },
                             animation: {
                                 duration: 1000
                             },
@@ -1939,9 +1942,9 @@
                 const departmentCtx2 = document.getElementById('departmentChart2');
                 if (departmentCtx2 && departmentCtx2.getContext) {
                     console.log('Creating department chart 2...');
-                    // キャンバスのサイズを明示的に設定
-                    departmentCtx2.width = 200;
-                    departmentCtx2.height = 120;
+                    // キャンバスのサイズを小さく調整
+                    departmentCtx2.width = 150;
+                    departmentCtx2.height = 90;
                     
                     new Chart(departmentCtx2.getContext('2d'), {
                         type: 'doughnut',
@@ -1952,12 +1955,15 @@
                                 backgroundColor: ['#2d4a73', '#4a6fa5', '#6ba3d6'],
                                 borderColor: ['#ffffff', '#ffffff', '#ffffff'],
                                 borderWidth: 1,
-                                cutout: '50%'
+                                cutout: '45%'
                             }]
                         },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
+                            layout: {
+                                padding: 5
+                            },
                             animation: {
                                 duration: 1000
                             },
